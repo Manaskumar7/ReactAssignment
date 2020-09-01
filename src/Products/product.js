@@ -65,9 +65,7 @@ const ProductList = () =>{
             return {...oldquery, ...landing}
         })
     }
-    if( loading){
-        return ( <Loader className="loading" type="Rings" color="#00BFFF"  height={50} width={50} />)
-    }
+    
     return(
         <div className="container bg mt-5 mb-5">
             <h1 className="main-heading">SpaceX Launch Programs</h1>
@@ -122,7 +120,9 @@ const ProductList = () =>{
                     <div className="right-box">
                         <div className="row">
                        
-                                
+                            {
+                                (loading) ? <Loader className="loading" type="Rings" color="#00BFFF"  height={50} width={50} />:""
+                            }    
                             {(productlist.length > 0) ?
                                 productlist.map((res, index) =>{
                                     return(
